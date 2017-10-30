@@ -1,6 +1,6 @@
 @echo off
 (if "%~1"=="" goto :EOF)& (if "%~2"=="" goto :EOF)
-call lib\load.bat _strlen _strlen2 _getLF& call lib\loadE.bat CurS& setlocal enabledelayedexpansion
+call load.bat _strlen _strlen2 _getLF& call loadE.bat CurS& setlocal enabledelayedexpansion
 %CurS% /crv 0
 ::水平柱状图
 ::    %1 数据文件

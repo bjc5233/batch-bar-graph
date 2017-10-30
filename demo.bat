@@ -1,4 +1,4 @@
-@echo off& call lib\load.bat _getRandomNum _parseJSON& setlocal enabledelayedexpansion
+@echo off& call load.bat _getRandomNum _parseJSON& setlocal enabledelayedexpansion
 ::为每个人随机计数, 可用于n个中选择1个
 set "members={1:小朋友1,2:小朋友2,3:小朋友3,4:小朋友4}"
 set members
