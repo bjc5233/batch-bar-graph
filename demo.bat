@@ -3,7 +3,7 @@
 set "members={1:Ð¡ÅóÓÑ1,2:Ð¡ÅóÓÑ2,3:Ð¡ÅóÓÑ3,4:Ð¡ÅóÓÑ4}"
 set members
 %_call% ("members") %_parseJSON%
-for /l %%i in (1,1,500) do (
+for /l %%i in (1,1,300) do (
 	(%_call% ("1 !members.length! memberIndex") %_getRandomNum%)
 	for %%j in (!memberIndex!) do (
 		for %%k in (!members.%%j!) do set /a memberCounts.%%k+=1
@@ -11,6 +11,6 @@ for /l %%i in (1,1,500) do (
 )
 set memberCounts.
 set memberCounts.>%temp%\selectMemberTemp.txt
-start barGraph.bat "%temp%\selectMemberTemp.txt" 1
-start barGraph2.bat "%temp%\selectMemberTemp.txt" 3
+start barGraphH.bat "%temp%\selectMemberTemp.txt" 1
+start barGraphV.bat "%temp%\selectMemberTemp.txt" 3
 pause>nul
