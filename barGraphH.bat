@@ -1,11 +1,13 @@
-@echo off& call load.bat _strlen _strlen2 _getLF& call loadF.bat _params _errorMsg& call loadE.bat CurS& setlocal enabledelayedexpansion
+@echo off& call load.bat _strlen _strlen2 _getLF& call loadF.bat _params _errorMsg _help& call loadE.bat CurS& setlocal enabledelayedexpansion
 %CurS% /crv 0
-::说明
-::  绘制水平柱状图
-::参数
-::  dataFile elementValue
-::      dataFile - 传入数据文件地址
-::      elementValue - 一个点代表的数值
+:::说明
+:::  绘制水平柱状图
+:::参数
+:::  dataFile elementValue
+:::      dataFile - 传入数据文件地址
+:::      elementValue - 一个点代表的数值
+:::  [-h help]
+:::      help - 打印注释信息
 
 ::========================= set default param =========================
 set elementValue=5
@@ -13,6 +15,8 @@ call %_params% %*
 
 
 ::========================= set user param =========================
+if defined _param-h (call %_help% "%~f0"& goto :EOF)
+if defined _param-help (call %_help% "%~f0"& goto :EOF)
 if defined _param-0 (
 	set dataFile=%_param-0%
     if not exist "!dataFile!" (call %_errorMsg% %0 "!dataFile! FILE NOT EXIST")
