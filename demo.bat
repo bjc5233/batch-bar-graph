@@ -6,11 +6,11 @@ set members
 for /l %%i in (1,1,300) do (
 	(%_call% ("1 !members.length! memberIndex") %_getRandomNum%)
 	for %%j in (!memberIndex!) do (
-		for %%k in (!members.%%j!) do set /a memberCounts.%%k+=1
+		for %%k in (!members.%%j!) do set /a k.%%k+=1
 	)
 )
-set memberCounts.
-set memberCounts.>%temp%\selectMemberTemp.txt
+set k.
+set k.>%temp%\selectMemberTemp.txt
 start barGraphH.bat "%temp%\selectMemberTemp.txt" 1
 start barGraphV.bat "%temp%\selectMemberTemp.txt" 3
 pause>nul
